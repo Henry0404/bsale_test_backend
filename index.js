@@ -1,5 +1,6 @@
 const express = require("express");
 var mysql = require("mysql");
+var cors = require("cors");
 
 const app = express();
 const connection = mysql.createConnection({
@@ -8,6 +9,8 @@ const connection = mysql.createConnection({
   password: process.env.DB_PASS,
   database: process.env.DB_DATABASE,
 });
+
+app.use(cors());
 
 connection.connect();
 
